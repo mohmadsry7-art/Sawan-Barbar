@@ -1587,6 +1587,122 @@
         })();
     </script>
 </div>
+<div id="gold-offer-section" class="price-card gold-special">
+    
+    <div class="card-header-status">
+        قريباً (متبقي <span id="countdown-days">5</span> أيام)
+    </div>
+    
+    <div class="card-icon-center">👑</div>
+    
+    <h3 class="card-title-gold">العروض الذهبية</h3>
+    
+    <p class="card-desc-gold">باقات مميزة ومتكاملة للعناية بمظهرك.</p>
+    
+    <div class="card-footer-gold">
+        <span>انتظرونا!</span>
+        <span>ترقبوا المفاجأة</span>
+    </div>
+
+    <style>
+        .price-card.gold-special {
+            background-color: #111111;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            min-height: 320px;
+            height: auto;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .card-header-status {
+            font-size: 11px;
+            color: #a5a5a5;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 15px;
+            direction: rtl;
+        }
+
+        #countdown-days {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .card-icon-center {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .card-title-gold {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0 10px 0;
+        }
+
+        .card-desc-gold {
+            color: #a5a5a5;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer-gold {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .card-footer-gold span {
+            color: #d4af37;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        (function() {
+            // حدد هنا تاريخ انتهاء الـ 5 أيام (يوم إطلاق العروض) بصيغة: سنة-شهر-يوم
+            const targetDate = new Date("2026-05-29T00:00:00").getTime();
+            
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+            
+            // حساب الأيام المتبقية
+            let daysLeft = Math.ceil(difference / (1000 * 60 * 60 * 24));
+            
+            const element = document.getElementById("countdown-days");
+            const cardSection = document.getElementById("gold-offer-section");
+            
+            if (daysLeft > 0) {
+                // إذا كان هناك أيام متبقية، يعرض الرقم الحالي
+                if (element) element.innerText = daysLeft;
+            } else {
+                // إذا انتهى الوقت (0 أو أقل)، تختفي البطاقة بالكامل من الموقع فوراً
+                if (cardSection) {
+                    cardSection.style.display = "none";
+                }
+            }
+        })();
+    </script>
+</div>
 
                 
 </div>
