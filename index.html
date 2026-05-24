@@ -1474,6 +1474,119 @@
     <div class="price-placeholder">
         <span class="coming-soon-text">ترقبوا المفاجأة</span>
     </div>
+<div class="price-card gold-special">
+    
+    <div class="card-header-status">
+        قريباً (متبقي <span id="countdown-days">5</span> أيام)
+    </div>
+    
+    <div class="card-icon-center">👑</div>
+    
+    <h3 class="card-title-gold">العروض الذهبية</h3>
+    
+    <p class="card-desc-gold">باقات مميزة ومتكاملة للعناية بمظهرك.</p>
+    
+    <div class="card-footer-gold">
+        <span>انتظرونا!</span>
+        <span>ترقبوا المفاجأة</span>
+    </div>
+
+    <style>
+        .price-card.gold-special {
+            background-color: #111111; /* نفس لون خلفية بطاقات الأسعار الحالية */
+            border: 1px solid rgba(212, 175, 55, 0.2); /* إطار ذهبي خفيف */
+            border-radius: 8px;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            min-height: 320px;
+            height: auto; /* يجعل الارتفاع مرن على الجوال لمنع تداخل النصوص */
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .card-header-status {
+            font-size: 11px;
+            color: #a5a5a5;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 15px;
+            direction: rtl;
+        }
+
+        #countdown-days {
+            color: #d4af37; /* جعل الرقم باللون الذهبي */
+            font-weight: bold;
+        }
+
+        .card-icon-center {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #d4af37; /* دائرة ذهبية حول التاج */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .card-title-gold {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0 10px 0;
+        }
+
+        .card-desc-gold {
+            color: #a5a5a5;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer-gold {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .card-footer-gold span {
+            color: #d4af37;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        (function() {
+            // حدد هنا تاريخ إطلاق العروض (ينتهي العداد عنده) بصيغة: سنة-شهر-يوم
+            // اليوم هو 24 مايو، وإذا كانت المدة 5 أيام فالتاريخ المستهدف هو 29 مايو 2026
+            const targetDate = new Date("2026-05-29T00:00:00").getTime();
+            
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+            
+            // حساب الأيام المتبقية
+            let daysLeft = Math.ceil(difference / (1000 * 60 * 60 * 24));
+            
+            const element = document.getElementById("countdown-days");
+            if (element) {
+                if (daysLeft > 0) {
+                    element.innerText = daysLeft;
+                } else {
+                    element.parentElement.innerHTML = "متاحة الآن ✨";
+                }
+            }
+        })();
+    </script>
+</div>
 
                 
 </div>
