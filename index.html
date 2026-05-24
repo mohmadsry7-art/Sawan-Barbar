@@ -1677,31 +1677,6 @@
         }
     </style>
 
-    <script>
-        (function() {
-            // حدد هنا تاريخ انتهاء الـ 5 أيام (يوم إطلاق العروض) بصيغة: سنة-شهر-يوم
-            const targetDate = new Date("2026-05-29T00:00:00").getTime();
-            
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-            
-            // حساب الأيام المتبقية
-            let daysLeft = Math.ceil(difference / (1000 * 60 * 60 * 24));
-            
-            const element = document.getElementById("countdown-days");
-            const cardSection = document.getElementById("gold-offer-section");
-            
-            if (daysLeft > 0) {
-                // إذا كان هناك أيام متبقية، يعرض الرقم الحالي
-                if (element) element.innerText = daysLeft;
-            } else {
-                // إذا انتهى الوقت (0 أو أقل)، تختفي البطاقة بالكامل من الموقع فوراً
-                if (cardSection) {
-                    cardSection.style.display = "none";
-                }
-            }
-        })();
-    </script>
 </div>
 
                 
