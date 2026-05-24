@@ -1463,9 +1463,8 @@
                         250 <span>ل.س</span>
                     </div>
                     <p style="font-size: 0.8rem; margin-top: 10px;">تشمل: غسيل + قص + استشوار</p>
-             
-            </div>
-              <div class="price-card vip-offer">
+             </div>
+                <div class="price-card vip-offer">
     <div class="badge-vip">قريباً</div>
     <div class="icon-wrapper">
         <i class="fas fa-crown gold-icon"></i>
@@ -1475,6 +1474,75 @@
     <div class="price-placeholder">
         <span class="coming-soon-text">ترقبوا المفاجأة</span>
     </div>
+
+    <style>
+        .vip-offer {
+            background: linear-gradient(145deg, #181818, #222222) !important;
+            border: 1px dashed #d4af37 !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .vip-offer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+            border-style: solid !important;
+        }
+        .badge-vip {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #d4af37;
+            color: #000;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 4px;
+            z-index: 10;
+        }
+        .icon-wrapper {
+            margin: 20px auto;
+            width: 60px;
+            height: 60px;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gold-icon {
+            color: #d4af37;
+            font-size: 24px;
+            animation: pulseCrown 2s infinite;
+        }
+        .vip-offer .card-title {
+            color: #ffffff;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .vip-offer .card-description {
+            color: #aaaaaa;
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 0 15px;
+        }
+        .price-placeholder {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .coming-soon-text {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        @keyframes pulseCrown {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+                </div>
+                
 </div>
   
             </div>
