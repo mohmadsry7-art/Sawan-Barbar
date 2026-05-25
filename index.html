@@ -2140,6 +2140,45 @@
             });
         });
     </script>
+      <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDladUdfVzxdTc4aQLIDcO2yik18_1WqvV8",
+    authDomain: "sawan-993-4e4fa.firebaseapp.com",
+    projectId: "sawan-993-4e4fa",
+    storageBucket: "sawan-993-4e4fa.firebasestorage.app",
+    messagingSenderId: "780148744333",
+    appId: "1:780148744333:web:59a43cfd1112c030bdc2c4",
+    measurementId: "G-9CBZZ0DQ33"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const bookingForm = document.getElementById('bookingForm');
+  if(bookingForm) {
+    bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        await addDoc(collection(db, "appointments"), {
+          name: document.getElementById('name').value,
+          phone: document.getElementById('phone').value,
+          date: document.getElementById('date').value,
+          time: document.getElementById('time').value,
+          service: document.getElementById('service')?.value || "حلاقة",
+          createdAt: serverTimestamp()
+        });
+        alert("تم الحجز بنجاح!");
+        bookingForm.reset();
+      } catch (error) {
+        alert("حدث خطأ أثناء الحجز.");
+      }
+    });
+  }
+</script>
+          
 </body>
 
 </html>'''
