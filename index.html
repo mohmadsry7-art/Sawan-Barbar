@@ -1464,40 +1464,142 @@
                     </div>
                     <p style="font-size: 0.8rem; margin-top: 10px;">تشمل: غسيل + قص + استشوار</p>
                 </div>
-<!-- قسم العروض الذهبية الحصرية - يوضع بشكل مستقل تماماً -->
-<section class="offers-section-v3">
-    <div class="offers-header-v3">
-        <h2 class="offers-main-title-v3">العروض الذهبية الحصرية</h2>
-        <p class="offers-subtitle-v3">حصرياً يوم الاثنين 7/6/2026</p>
-        <span class="countdown-badge-v3">متبقي 5 أيام</span>
-    </div>
+                
+<!-- العرض الأول كخانة مستقلة -->
+<div class="price-item-v4">
+    <div class="offer-badge-top">متبقي 5 أيام</div>
+    <a href="https://wa.me/9639xxxxxxxx?text=مرحباً،%20أود%20حجز%20العرض%20الأول%20(حلاقة%20شعر%20ودقن%20وماسك)%20بـ%20300%20ل.س" target="_blank" class="offer-link-v4">
+        <div class="icon-box-v4">👑</div>
+        <h3 class="title-v4">العرض الأول</h3>
+        <p class="subtitle-v4">حصرياً يوم الاثنين 7/6/2026</p>
+        <p class="details-v4">حلاقة شعر + تهذيب ذقن + ماسك</p>
+        <div class="price-box-v4">
+            <span class="price-num-v4">300</span>
+            <span class="curr-v4">ل.س (فئة جديدة)</span>
+        </div>
+        <span class="btn-v4">احجز عبر واتساب</span>
+    </a>
+</div>
 
-    <div class="offers-grid-v3">
-        <!-- العرض الأول -->
-        <a href="https://wa.me/9639xxxxxxxx?text=مرحباً،%20أود%20حجز%20العرض%20الأول%20(حلاقة%20شعر%20ودقن%20وماسك)%20بـ%20300%20ل.س" target="_blank" class="offer-card-v3">
-            <div class="offer-icon-v3">👑</div>
-            <h3 class="offer-title-v3">العرض الأول</h3>
-            <p class="offer-details-v3">حلاقة شعر + تهذيب ذقن + ماسك للوجه</p>
-            <div class="price-tag-v3">
-                <span class="price-number-v3">300</span>
-                <span class="currency-v3">ل.س (فئة جديدة)</span>
-            </div>
-            <span class="book-btn-v3">احجز عبر واتساب مجاناً</span>
-        </a>
+<!-- العرض الثاني كخانة مستقلة -->
+<div class="price-item-v4">
+    <div class="offer-badge-top">متبقي 5 أيام</div>
+    <a href="https://wa.me/9639xxxxxxxx?text=مرحباً،%20أود%20حجز%20العرض%20الثاني%20(استشوار%20فقط)%20بـ%20150%20ل.س" target="_blank" class="offer-link-v4">
+        <div class="icon-box-v4">👑</div>
+        <h3 class="title-v4">العرض الثاني</h3>
+        <p class="subtitle-v4">حصرياً يوم الاثنين 7/6/2026</p>
+        <p class="details-v4">جلسة استشوار وتصفيف شعر فقط</p>
+        <div class="price-box-v4">
+            <span class="price-num-v4">150</span>
+            <span class="curr-v4">ل.س (فئة جديدة)</span>
+        </div>
+        <span class="btn-v4">احجز عبر واتساب</span>
+    </a>
+</div>
 
-        <!-- العرض الثاني -->
-        <a href="https://wa.me/9639xxxxxxxx?text=مرحباً،%20أود%20حجز%20العرض%20الثاني%20(استشوار%20فقط)%20بـ%20150%20ل.س" target="_blank" class="offer-card-v3">
-            <div class="offer-icon-v3">👑</div>
-            <h3 class="offer-title-v3">العرض الثاني</h3>
-            <p class="offer-details-v3">جلسة استشوار وتصفيف شعر فقط</p>
-            <div class="price-tag-v3">
-                <span class="price-number-v3">150</span>
-                <span class="currency-v3">ل.س (فئة جديدة)</span>
-            </div>
-            <span class="book-btn-v3">احجز عبر واتساب مجاناً</span>
-        </a>
-    </div>
-</section>
+<style>
+/* التنسيقات لتبدو تماماً مثل كروت الأسعار القديمة ولكن بلمسة العرض الحصري */
+.price-item-v4 {
+    background-color: #161616;
+    border: 1px solid #222222;
+    border-radius: 4px;
+    padding: 25px 15px;
+    text-align: center;
+    position: relative;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.price-item-v4:hover {
+    border-color: #c5a880;
+}
+
+.offer-badge-top {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #c5a880;
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.offer-link-v4 {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.icon-box-v4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #c5a880;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-v4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.subtitle-v4 {
+    color: #c5a880;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.details-v4 {
+    color: #8c8c8c;
+    font-size: 13px;
+    min-height: 35px;
+    margin-bottom: 15px;
+}
+
+.price-box-v4 {
+    margin-bottom: 15px;
+    color: #c5a880;
+}
+
+.price-num-v4 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.curr-v4 {
+    font-size: 12px;
+    display: block;
+    color: #666666;
+}
+
+.btn-v4 {
+    border: 1px solid #c5a880;
+    color: #c5a880;
+    padding: 6px 15px;
+    border-radius: 3px;
+    font-size: 13px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.price-item-v4:hover .btn-v4 {
+    background-color: #c5a880;
+    color: #000000;
+    font-weight: bold;
+}
+</style>
 
 <style>
 /* تنسيقات مستقلة تماماً لضمان العرض الأفقي المنسق */
