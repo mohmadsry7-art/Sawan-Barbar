@@ -1464,48 +1464,177 @@
                     </div>
                     <p style="font-size: 0.8rem; margin-top: 10px;">تشمل: غسيل + قص + استشوار</p>
                 </div>
-                <!-- قسم العروض الحصرية -->
-<section class="offers-section">
-    <div class="section-title-container">
-        <h2 class="offers-main-title">العروض الذهبية الحصرية</h2>
-        <p class="offers-subtitle">حصرياً يوم الاثنين 7/6/2026</p>
-        <span class="countdown-badge">متبقي 7 ايام يبدء العرض يوم واحد فقط!</span>
+        
+<style><!-- قسم العروض الذهبية الحصرية - يوضع بشكل مستقل تماماً -->
+<section class="offers-section-v2">
+    <div class="offers-header-v2">
+        <h2 class="offers-main-title-v2">العروض الذهبية الحصرية</h2>
+        <p class="offers-subtitle-v2">حصرياً يوم الاثنين 7/6/2026</p>
+        <span class="countdown-badge-v2">متبقي 5 أيام</span>
     </div>
 
-    <div class="offers-container">
+    <div class="offers-grid-v2">
         <!-- العرض الأول -->
-        <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً،%20أود%20حجز%20العرض%20الأول%20(حلاقة%20شعر%20ودقن%20وماسك)%20بـ%20300%20ل.س" target="_blank" class="offer-card">
-            <div class="offer-icon">
-                <i class="fas fa-cut"></i> <!-- يمكنك استخدام أي أيقونة مناسبة -->
-                <span class="crown-icon">👑</span>
+        <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً،%20أود%20حجز%20العرض%20الأول%20(حلاقة%20شعر%20ودقن%20وماسك)%20بـ%20300%20ل.س" target="_blank" class="offer-card-v2">
+            <div class="offer-icon-v2">👑</div>
+            <h3 class="offer-title-v2">العرض الأول</h3>
+            <p class="offer-details-v2">حلاقة شعر + تهذيب ذقن + ماسك للوجه</p>
+            <div class="price-tag-v2">
+                <span class="price-number-v2">300</span>
+                <span class="currency-v2">ل.س (فئة جديدة)</span>
             </div>
-            <h3 class="offer-title">العرض الأول</h3>
-            <p class="offer-details">حلاقة شعر + تهذيب ذقن + ماسك للوجه</p>
-            <div class="price-tag">
-                <span class="price-number">300</span>
-                <span class="currency">ل.س (فئة جديدة)</span>
-            </div>
-            <span class="book-now-btn">احجز عبر واتساب مجاناً</span>
+            <span class="book-btn-v2">احجز عبر واتساب مجاناً</span>
         </a>
 
         <!-- العرض الثاني -->
-        <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً،%20أود%20حجز%20العرض%20الثاني%20(استشوار%20فقط)%20بـ%20150%20ل.س" target="_blank" class="offer-card">
-            <div class="offer-icon">
-                <span class="crown-icon">👑</span>
+        <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً،%20أود%20حجز%20العرض%20الثاني%20(استشوار%20فقط)%20بـ%20150%20ل.س" target="_blank" class="offer-card-v2">
+            <div class="offer-icon-v2">👑</div>
+            <h3 class="offer-title-v2">العرض الثاني</h3>
+            <p class="offer-details-v2">جلسة استشوار وتصفيف شعر فقط</p>
+            <div class="price-tag-v2">
+                <span class="price-number-v2">150</span>
+                <span class="currency-v2">ل.س (فئة جديدة)</span>
             </div>
-            <h3 class="offer-title">العرض الثاني</h3>
-            <p class="offer-details">جلسة استشوار وتصفيف شعر فقط</p>
-            <div class="price-tag">
-                <span class="price-number">150</span>
-                <span class="currency">ل.س (فئة جديدة)</span>
-            </div>
-            <span class="book-now-btn">احجز عبر واتساب مجاناً</span>
+            <span class="book-btn-v2">احجز عبر واتساب مجاناً</span>
         </a>
     </div>
 </section>
 
-<!-- التنسيقات الخاصة بالعروض لتطابق تصميم موقعك -->
 <style>
+/* التنسيقات لضمان العرض الأفقي المنسق وضبط المسافات */
+.offers-section-v2 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    direction: rtl;
+    font-family: sans-serif;
+    clear: both; /* لمنع التداخل مع الأقسام العلوية */
+}
+
+.offers-main-title-v2 {
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.offers-subtitle-v2 {
+    color: #c5a880;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.countdown-badge-v2 {
+    display: inline-block;
+    background-color: #c5a880;
+    color: #000000;
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.offers-grid-v2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+}
+
+.offer-card-v2 {
+    background-color: #161616;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 25px 20px;
+    flex: 1;
+    max-width: 340px;
+    min-width: 260px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.offer-card-v2:hover {
+    border-color: #c5a880;
+    transform: translateY(-5px);
+}
+
+.offer-icon-v2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.offer-title-v2 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.offer-details-v2 {
+    color: #8c8c8c;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    min-height: 40px;
+}
+
+.price-tag-v2 {
+    margin-bottom: 20px;
+    color: #c5a880;
+}
+
+.price-number-v2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.currency-v2 {
+    font-size: 13px;
+    display: block;
+    color: #666666;
+    margin-top: 2px;
+}
+
+.book-btn-v2 {
+    border: 1px solid #c5a880;
+    color: #c5a880;
+    padding: 8px 0;
+    border-radius: 4px;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* يدفع الزر دائماً لأسفل الكرت ليصبحا بنفس الطول */
+    transition: all 0.3s ease;
+}
+
+.offer-card-v2:hover .book-btn-v2 {
+    background-color: #c5a880;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* التوافق مع الشاشات الصغيرة والهواتف لتصبح الكروت فوق بعضها تلقائياً عند صغر الشاشة */
+@media (max-width: 650px) {
+    .offers-grid-v2 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .offer-card-v2 {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+</style>
+
 .offers-section {
     padding: 40px 20px;
     background-color: #0c0c0c;
