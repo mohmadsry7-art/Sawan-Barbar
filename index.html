@@ -1463,33 +1463,173 @@
                         250 <span>ل.س</span>
                     </div>
                     <p style="font-size: 0.8rem; margin-top: 10px;">تشمل: غسيل + قص + استشوار</p>
-             </div>
-                <div class="price-card vip-offer">
-    <div class="badge-vip">قريباً</div>
-    <div class="icon-wrapper">
-        <i class="fas fa-crown gold-icon"></i>
+                </div>
+                <!-- قسم العروض الحصرية -->
+<section class="offers-section">
+    <div class="section-title-container">
+        <h2 class="offers-main-title">العروض الذهبية الحصرية</h2>
+        <p class="offers-subtitle">حصرياً يوم الاثنين 7/6/2026</p>
+        <span class="countdown-badge">متبقي 7 ايام يبدء العرض يوم واحد فقط!</span>
     </div>
-    <h3 class="card-title">العروض الذهبية</h3>
-    <p class="card-description">باقات مميزة ومتكاملة للعناية بمظهرك، انتظرونا!</p>
-    <div class="price-placeholder">
-        <span class="coming-soon-text">ترقبوا المفاجأة</span>
+
+    <div class="offers-container">
+        <!-- العرض الأول -->
+        <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً،%20أود%20حجز%20العرض%20الأول%20(حلاقة%20شعر%20ودقن%20وماسك)%20بـ%20300%20ل.س" target="_blank" class="offer-card">
+            <div class="offer-icon">
+                <i class="fas fa-cut"></i> <!-- يمكنك استخدام أي أيقونة مناسبة -->
+                <span class="crown-icon">👑</span>
+            </div>
+            <h3 class="offer-title">العرض الأول</h3>
+            <p class="offer-details">حلاقة شعر + تهذيب ذقن + ماسك للوجه</p>
+            <div class="price-tag">
+                <span class="price-number">300</span>
+                <span class="currency">ل.س (فئة جديدة)</span>
+            </div>
+            <span class="book-now-btn">احجز عبر واتساب مجاناً</span>
+        </a>
+
+        <!-- العرض الثاني -->
+        <a href="https://wa.me/YOUR_PHONE_NUMBER?text=مرحباً،%20أود%20حجز%20العرض%20الثاني%20(استشوار%20فقط)%20بـ%20150%20ل.س" target="_blank" class="offer-card">
+            <div class="offer-icon">
+                <span class="crown-icon">👑</span>
+            </div>
+            <h3 class="offer-title">العرض الثاني</h3>
+            <p class="offer-details">جلسة استشوار وتصفيف شعر فقط</p>
+            <div class="price-tag">
+                <span class="price-number">150</span>
+                <span class="currency">ل.س (فئة جديدة)</span>
+            </div>
+            <span class="book-now-btn">احجز عبر واتساب مجاناً</span>
+        </a>
     </div>
-<div class="price-card gold-special">
-    
-    <div class="card-header-status">
-        قريباً (متبقي <span id="countdown-days">5</span> أيام)
-    </div>
-    
-    <div class="card-icon-center">👑</div>
-    
-    <h3 class="card-title-gold">العروض الذهبية</h3>
-    
-    <p class="card-desc-gold">باقات مميزة ومتكاملة للعناية بمظهرك.</p>
-    
-    <div class="card-footer-gold">
-        <span>انتظرونا!</span>
-        <span>ترقبوا المفاجأة</span>
-    </div>
+</section>
+
+<!-- التنسيقات الخاصة بالعروض لتطابق تصميم موقعك -->
+<style>
+.offers-section {
+    padding: 40px 20px;
+    background-color: #0c0c0c;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+}
+
+.offers-main-title {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.offers-subtitle {
+    color: #c5a880; /* اللون الذهبي الخاص بموقعك */
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.countdown-badge {
+    display: inline-block;
+    background-color: #d4af37;
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.offers-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.offer-card {
+    background-color: #161616;
+    border: 1px solid #2c2c2c;
+    border-radius: 8px;
+    padding: 30px 20px;
+    width: 280px;
+    text-decoration: none; /* لإزالة الخط أسفل الرابط */
+    color: inherit;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.offer-card:hover {
+    border-color: #c5a880;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(197, 168, 128, 0.2);
+}
+
+.crown-icon {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.offer-title {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.offer-details {
+    color: #999999;
+    font-size: 14px;
+    min-height: 45px;
+    line-height: 1.6;
+}
+
+.price-tag {
+    margin: 20px 0;
+    color: #c5a880;
+}
+
+.price-number {
+    font-size: 36px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.currency {
+    font-size: 14px;
+    display: block;
+    color: #777;
+    margin-top: 2px;
+}
+
+.book-now-btn {
+    background-color: transparent;
+    border: 1px solid #c5a880;
+    color: #c5a880;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.offer-card:hover .book-now-btn {
+    background-color: #c5a880;
+    color: #000000;
+    font-weight: bold;
+}
+</style>
 
     <style>
         .price-card.gold-special {
