@@ -1,0 +1,2568 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAWAN Barber Shop | صالون حلاقة صوان</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #C5A059;
+            --gold-light: #D4AF37;
+            --dark: #0A0A0A;
+            --darker: #050505;
+            --gray: #1A1A1A;
+            --light-gray: #2A2A2A;
+            --white: #FFFFFF;
+            --cream: #F5F0E8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--darker);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1920') center/cover;
+            opacity: 0.3;
+            filter: brightness(0.4) contrast(1.2);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(10, 10, 10, 0.7) 50%, rgba(197, 160, 89, 0.1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 25px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.7s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Cairo', sans-serif;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--dark);
+            border-color: var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--gold);
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--dark);
+        }
+
+        .hero-info {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeIn 1s ease 1s forwards;
+            opacity: 0;
+        }
+
+        .hero-info-item {
+            text-align: center;
+        }
+
+        .hero-info-item i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .hero-info-item span {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-label {
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .section-line {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--dark);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .about-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: var(--gray);
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--darker);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(197,160,89,0.05)"/></svg>');
+            background-size: 50px 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: var(--gray);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid var(--light-gray);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--dark);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--gold);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gold);
+            color: var(--dark);
+            animation: pulse 0.5s;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 15px 0;
+        }
+
+        .service-card .price span {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 5px 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 350px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            color: var(--gold);
+            font-size: 1.3rem;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--darker);
+            padding: 80px 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .feature-icon {
+            min-width: 60px;
+            height: 60px;
+            background: var(--gold);
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border-radius: 0;
+        }
+
+        .feature-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .feature-content p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--gray) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--gold);
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        .contact-item i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        .contact-form {
+            background: var(--gray);
+            padding: 50px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            background: var(--dark);
+            border: 1px solid var(--light-gray);
+            color: var(--white);
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--gray);
+            border: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--dark);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0;
+            height: 400px;
+            background: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gray) 0%, var(--light-gray) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .map-placeholder i {
+            font-size: 4rem;
+            color: var(--gold);
+        }
+
+        .map-placeholder h3 {
+            font-size: 1.5rem;
+        }
+
+        .map-placeholder p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--darker);
+            padding: 60px 20px 30px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--light-gray);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom span {
+            color: var(--gold);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-image img {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .hero-info {
+                gap: 20px;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 2px;
+            background: var(--gray);
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--gold);
+            animation: shimmer 1.5s ease-in-out infinite;
+        }
+
+        .map-section {
+            width: 100%;
+            padding: 40px 20px;
+            background: #fff;
+        }
+
+        .map-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .map-header i {
+            font-size: 28px;
+            color: #c59d5f;
+        }
+
+        .map-text h3 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .map-text p {
+            margin-top: 6px;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            display: block;
+        }
+
+        .map-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            text-align: center;
+            direction: rtl;
+        }
+
+        .map-header i {
+            font-size: 28px;
+            color: #c59d5f;
+        }
+
+        .map-text h3 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .map-text p {
+            margin-top: 6px;
+            font-size: 15px;
+            color: #666;
+        }
+
+        .form-title {
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 15px;
+            font-weight: 600;
+            color: #f5f5f5;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 15px;
+            font-family: inherit;
+            transition: 0.3s ease;
+        }
+
+        .form-group input,
+        .form-group select {
+            height: 52px;
+            padding: 0 14px;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            padding: 14px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #888;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(197, 157, 95, 0.15);
+        }
+
+        .form-group select option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">SAWAN</div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">SAWAN</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#gallery">معرض الصور</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">صالون حلاقة رجالي فاخر</div>
+            <h1>
+                <span>SAWAN</span>
+                صالون حلاقة صوان
+            </h1>
+            <p class="hero-subtitle">
+                14 عاماً من الخبرة في عالم الحلاقة الرجالية | خدمة 5 نجوم | كرياتين وتسبيل
+            </p>
+            <div class="hero-buttons">
+                <a href="tel:0941122075" class="btn btn-primary">
+                    <i class="fas fa-phone-alt" style="margin-left: 8px;"></i>
+                    احجز موعدك الآن
+                </a>
+                <a href="#services" class="btn btn-outline">
+                    <i class="fas fa-cut" style="margin-left: 8px;"></i>
+                    تصفح خدماتنا
+                </a>
+            </div>
+        </div>
+        <div class="hero-info">
+            <div class="hero-info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>دمشق - المزة - شيخ سعد</span>
+            </div>
+            <div class="hero-info-item">
+                <i class="fas fa-clock"></i>
+                <span>يومياً من 10 صباحاً حتى 10 مساءً</span>
+            </div>
+            <div class="hero-info-item">
+                <i class="fas fa-star"></i>
+                <span>خدمة 5 نجوم</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content animate">
+                    <span class="section-label">من نحن</span>
+                    <h3>صالون صوان... حيث الفخامة تلتقي بالإبداع</h3>
+                    <p>
+                        نفتخر بتقديم خدمات الحلاقة الرجالية بأعلى معايير الجودة والاحترافية. يدير الصالون المعلم <strong
+                            style="color: var(--gold);">عبدالله صوان</strong>، صاحب خبرة تمتد لـ <strong>14
+                            عاماً</strong> في مجال الحلاقة والعناية بالرجل.
+                    </p>
+                    <p>
+                        نؤمن بأن كل رجل يستحق تجربة فريدة من نوعها، لذلك نقدم لكم بيئة فاخرة تجمع بين الأناقة العصرية
+                        والخدمة المتميزة. صالوننا مجهز بأحدث الأدوات والتقنيات، مع توفير خدمة الكرياتين والتسبيل لراحتكم
+                        التامة.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">14+</span>
+                            <span class="stat-label">سنة خبرة</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5★</span>
+                            <span class="stat-label">خدمة ممتازة</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">رضا العملاء</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image animate delay-2">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800"
+                        alt="صالون حلاقة صوان">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header animate">
+                <span class="section-label">خدماتنا</span>
+                <h2 class="section-title">قائمة الأسعار</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>شعر ودقن</h3>
+                    <p>قص الشعر مع تهذيب اللحية</p>
+                    <div class="price">
+                        750 <span>ل.س</span>
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">تشمل: غسيل + قص + استشوار + ترتيب</p>
+                </div>
+                <div class="service-card animate delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>قص الشعر</h3>
+                    <p>قص احترافي للشعر</p>
+                    <div class="price">
+                        400 <span>ل.س</span>
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">تشمل: غسيل + قص + استشوار</p>
+                </div>
+                <div class="service-card animate delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>تهذيب الدقن</h3>
+                    <p>تشكيل اللحية باحترافية</p>
+                    <div class="price">
+                        350 <span>ل.س</span>
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">تشمل: غسيل + تهذيب + زيوت</p>
+                </div>
+                <div class="service-card animate delay-4">
+                    <div class="service-badge">الأطفال</div>
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>قص الأطفال</h3>
+                    <p>قص مخصص للأطفال</p>
+                    <div class="price">
+                        250 <span>ل.س</span>
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">تشمل: غسيل + قص + استشوار</p>
+                </div>
+                
+<!-- العرض الأول كخانة مستقلة -->
+<div class="price-item-v4">
+    <div class="offer-badge-top">متبقي 7  أيام</div>
+    <a href="https://wa.me/963941122075?text=مرحباً،%20أود%20حجز%20العرض%20الأول%20(حلاقة%20شعر%20ودقن%20وماسك)%20بـ%20300%20ل.س" target="_blank" class="offer-link-v4">
+        <div class="icon-box-v4">👑</div>
+        <h3 class="title-v4">العرض الأول</h3>
+        <p class="subtitle-v4">حصرياً يوم الاثنين 7/6/2026</p>
+        <p class="details-v4">حلاقة شعر + تهذيب ذقن + ماسك</p>
+        <div class="price-box-v4">
+            <span class="price-num-v4">300</span>
+            <span class="curr-v4">ل.س (فئة جديدة)</span>
+        </div>
+        <span class="btn-v4">احجز عبر واتساب</span>
+    </a>
+</div>
+
+<!-- العرض الثاني كخانة مستقلة -->
+<div class="price-item-v4">
+    <div class="offer-badge-top">متبقي 7 أيام</div>
+    <a href="https://wa.me/963941122075?text=مرحباً،%20أود%20حجز%20العرض%20الثاني%20(استشوار%20فقط)%20بـ%20150%20ل.س" target="_blank" class="offer-link-v4">
+        <div class="icon-box-v4">👑</div>
+        <h3 class="title-v4">العرض الثاني</h3>
+        <p class="subtitle-v4">حصرياً يوم الاثنين 7/6/2026</p>
+        <p class="details-v4">جلسة استشوار كاملة شعر مرة واحد فقط</p>
+        <div class="price-box-v4">
+            <span class="price-num-v4">150</span>
+            <span class="curr-v4">ل.س (فئة جديدة)</span>
+        </div>
+        <span class="btn-v4">احجز عبر واتساب</span>
+    </a>
+</div>
+
+<style>
+/* التنسيقات لتبدو تماماً مثل كروت الأسعار القديمة ولكن بلمسة العرض الحصري */
+.price-item-v4 {
+    background-color: #161616;
+    border: 1px solid #222222;
+    border-radius: 4px;
+    padding: 25px 15px;
+    text-align: center;
+    position: relative;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.price-item-v4:hover {
+    border-color: #c5a880;
+}
+
+.offer-badge-top {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #c5a880;
+    color: #000000;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.offer-link-v4 {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.icon-box-v4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #c5a880;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-v4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.subtitle-v4 {
+    color: #c5a880;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.details-v4 {
+    color: #8c8c8c;
+    font-size: 13px;
+    min-height: 35px;
+    margin-bottom: 15px;
+}
+
+.price-box-v4 {
+    margin-bottom: 15px;
+    color: #c5a880;
+}
+
+.price-num-v4 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.curr-v4 {
+    font-size: 12px;
+    display: block;
+    color: #666666;
+}
+
+.btn-v4 {
+    border: 1px solid #c5a880;
+    color: #c5a880;
+    padding: 6px 15px;
+    border-radius: 3px;
+    font-size: 13px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.price-item-v4:hover .btn-v4 {
+    background-color: #c5a880;
+    color: #000000;
+    font-weight: bold;
+}
+</style>
+
+<style>
+/* تنسيقات مستقلة تماماً لضمان العرض الأفقي المنسق */
+.offers-section-v3 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    clear: both;
+}
+
+.offers-main-title-v3 {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.offers-subtitle-v3 {
+    color: #c5a880;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.countdown-badge-v3 {
+    display: inline-block;
+    background-color: #c5a880;
+    color: #000000;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+.offers-grid-v3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    width: 100%;
+}
+
+.offer-card-v3 {
+    background-color: #161616;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 30px 20px;
+    flex: 1;
+    max-width: 350px;
+    min-width: 280px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.offer-card-v3:hover {
+    border-color: #c5a880;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(197, 168, 128, 0.15);
+}
+
+.offer-icon-v3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.offer-title-v3 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.offer-details-v3 {
+    color: #999999;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    min-height: 45px;
+}
+
+.price-tag-v3 {
+    margin-bottom: 25px;
+    color: #c5a880;
+}
+
+.price-number-v3 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.currency-v3 {
+    font-size: 13px;
+    display: block;
+    color: #666666;
+    margin-top: 2px;
+}
+
+.book-btn-v3 {
+    border: 1px solid #c5a880;
+    color: #c5a880;
+    padding: 10px 0;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    transition: all 0.3s ease;
+}
+
+.offer-card-v3:hover .book-btn-v3 {
+    background-color: #c5a880;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* دعم الهواتف لترتيب الكروت فوق بعضها تلقائياً عند صغر الشاشة */
+@media (max-width: 768px) {
+    .offers-grid-v3 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .offer-card-v3 {
+        width: 100%;
+        max-width: 340px;
+    }
+}
+</style>
+
+
+<style>
+/* التنسيقات لضمان العرض الأفقي المنسق وضبط المسافات */
+.offers-section-v2 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    direction: rtl;
+    font-family: sans-serif;
+    clear: both; /* لمنع التداخل مع الأقسام العلوية */
+}
+
+.offers-main-title-v2 {
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.offers-subtitle-v2 {
+    color: #c5a880;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.countdown-badge-v2 {
+    display: inline-block;
+    background-color: #c5a880;
+    color: #000000;
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.offers-grid-v2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+}
+
+.offer-card-v2 {
+    background-color: #161616;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 25px 20px;
+    flex: 1;
+    max-width: 340px;
+    min-width: 260px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.offer-card-v2:hover {
+    border-color: #c5a880;
+    transform: translateY(-5px);
+}
+
+.offer-icon-v2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.offer-title-v2 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.offer-details-v2 {
+    color: #8c8c8c;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    min-height: 40px;
+}
+
+.price-tag-v2 {
+    margin-bottom: 20px;
+    color: #c5a880;
+}
+
+.price-number-v2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.currency-v2 {
+    font-size: 13px;
+    display: block;
+    color: #666666;
+    margin-top: 2px;
+}
+
+.book-btn-v2 {
+    border: 1px solid #c5a880;
+    color: #c5a880;
+    padding: 8px 0;
+    border-radius: 4px;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* يدفع الزر دائماً لأسفل الكرت ليصبحا بنفس الطول */
+    transition: all 0.3s ease;
+}
+
+.offer-card-v2:hover .book-btn-v2 {
+    background-color: #c5a880;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* التوافق مع الشاشات الصغيرة والهواتف لتصبح الكروت فوق بعضها تلقائياً عند صغر الشاشة */
+@media (max-width: 650px) {
+    .offers-grid-v2 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .offer-card-v2 {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+</style>
+    
+
+    <style>
+        .price-card.gold-special {
+            background-color: #111111; /* نفس لون خلفية بطاقات الأسعار الحالية */
+            border: 1px solid rgba(212, 175, 55, 0.2); /* إطار ذهبي خفيف */
+            border-radius: 8px;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            min-height: 320px;
+            height: auto; /* يجعل الارتفاع مرن على الجوال لمنع تداخل النصوص */
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .card-header-status {
+            font-size: 11px;
+            color: #a5a5a5;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 15px;
+            direction: rtl;
+        }
+
+        #countdown-days {
+            color: #d4af37; /* جعل الرقم باللون الذهبي */
+            font-weight: bold;
+        }
+
+        .card-icon-center {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #d4af37; /* دائرة ذهبية حول التاج */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .card-title-gold {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0 10px 0;
+        }
+
+        .card-desc-gold {
+            color: #a5a5a5;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer-gold {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .card-footer-gold span {
+            color: #d4af37;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+
+
+  
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header animate">
+                <span class="section-label">لماذا نحن</span>
+                <h2 class="section-title">مميزات صالون صوان</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="features-grid">
+
+                <div class="feature-item animate delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-air-freshener"></i>
+                    </div>
+
+                    <div class="feature-content">
+                        <h4>كرياتين</h4>
+                        <p>فرد وتنعيم الشعر</p>
+                    </div>
+                </div>
+
+                <div class="feature-item animate delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+
+                    <div class="feature-content">
+                        <h4>تسبيل</h4>
+                        <p>تسبيل وتصفيف الشعر باحترافية</p>
+                    </div>
+                </div>
+
+                <div class="feature-item animate delay-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-house-user"></i>
+                    </div>
+
+                    <div class="feature-content">
+                        <h4>خدمة خارجية</h4>
+                        <p>حلاقة منزلية للمناسبات والأعراس</p>
+                    </div>
+                </div>
+
+                <div class="feature-item animate delay-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+
+                    <div class="feature-content">
+                        <h4>14 سنة خبرة</h4>
+                        <p>خبرة طويلة في عالم الحلاقة الرجالية</p>
+                    </div>
+                </div>
+
+                <div class="feature-item animate delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <div class="feature-content">
+                        <h4>خدمة 5 نجوم</h4>
+                        <p>أعلى معايير الجودة والنظافة</p>
+                    </div>
+                </div>
+
+                <div class="feature-item animate delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+
+                    <div class="feature-content">
+                        <h4>مواعيد مرنة</h4>
+                        <p>نعمل يومياً من 9 صباحاً حتى 10 مساءً</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header animate">
+                <span class="section-label">معرض الصور</span>
+                <h2 class="section-title">أجواء صالون صوان</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item animate delay-1">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600" alt="صالون حلاقة">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>بيئة فاخرة</h4>
+                            <p>ديكور عصري وأنيق</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item animate delay-2">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600" alt="قص الشعر">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>أدوات احترافية</h4>
+                            <p>أحدث المعدات والتقنيات</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item animate delay-3">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600" alt="تهذيب اللحية">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>العناية بالرجل</h4>
+                            <p>خدمات متكاملة للعناية</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item animate delay-1">
+                    <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=600" alt="صالون حديث">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>تصميم عصري</h4>
+                            <p>أجواء مريحة وفاخرة</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item animate delay-2">
+                    <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=600" alt="حلاقة احترافية">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>احترافية عالية</h4>
+                            <p>فريق مدرب على أعلى مستوى</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item animate delay-3">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600" alt="خدمة ممتازة">
+                    <div class="gallery-overlay">
+                        <div>
+                            <h4>خدمة متميزة</h4>
+                            <p>راحتكم هي أولويتنا</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-header">
+            <i class="fas fa-map-marked-alt"></i>
+
+            <div class="map-text">
+                <h3>دمشق - المزة - شيخ سعد</h3>
+                <p>صالون حلاقة صوان | SAWAN Barber Shop</p>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d831.7007509137204!2d36.25598926960858!3d33.50650211657989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDMwJzIzLjQiTiAzNsKwMTUnMjMuOSJF!5e0!3m2!1sen!2s!4v1779130949676!5m2!1sen!2s"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header animate">
+                <span class="section-label">تواصل معنا</span>
+                <h2 class="section-title">احجز موعدك الآن</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info animate delay-1">
+                    <h3>معلومات التواصل</h3>
+
+                    <div class="contact-item">
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <h4>الإدارة</h4>
+                            <p>abdullah sawan</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>العنوان</h4>
+                            <p>دمشق - المزة - شيخ سعد</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>الهاتف</h4>
+                            <a href="tel:0941122075">0941122075</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>الخط الأرضي</h4>
+                            <a href="tel:0116636443">0116636443</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>أوقات العمل</h4>
+                            <p>يومياً من 9:00 صباحاً حتى 10:00 مساءً</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1HyyXKhUj9" target="_blank" rel="noopener noreferrer"
+                            title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/sawan.top.1?utm_source=qr" target="_blank"
+                            rel="noopener noreferrer" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a target="_blank" rel="noopener noreferrer" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+
+                        <a href="https://wa.me/963941122075" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form animate delay-2">
+                    <h3 class="form-title">احجز موعدك</h3>
+
+                    <form id="bookingForm">
+
+                        <div class="form-group">
+                            <label for="full-name">الاسم الكامل</label>
+                            <input type="text" id="full-name" placeholder="أدخل اسمك" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" placeholder="09xxxxxxxx" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة</label>
+
+                            <select id="service" required>
+                                <option value="">اختر الخدمة</option>
+                                <option value="hair-beard">شعر ودقن - 750 ل.س</option>
+                                <option value="hair">قص الشعر - 400 ل.س</option>
+                                <option value="beard">تهذيب الدقن - 350 ل.س</option>
+                                <option value="kids">قص الأطفال - 250 ل.س</option>
+                                <option value="external">خدمة خارجية</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="booking-date">التاريخ والوقت</label>
+
+                            <input type="datetime-local" id="booking-date" name="booking-date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">ملاحظات إضافية</label>
+
+                            <textarea id="notes" placeholder="أي ملاحظات خاصة..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            إرسال الحجز
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">SAWAN</a>
+                    <p>
+                        صالون حلاقة رجالي فاخر يقدم خدمات احترافية بأعلى معايير الجودة.
+                        نفتخر بـ 14 عاماً من الخبرة في تقديم أفضل تجربة حلاقة في دمشق.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-left"></i> من نحن</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> الخدمات</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-left"></i> تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>خدماتنا</h4>
+                    <ul>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> شعر ودقن</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> قص الشعر</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> تهذيب الدقن</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> قص الأطفال</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-left"></i> خدمة خارجية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>تواصل معنا</h4>
+                    <ul>
+                        <li><a href="tel:0941122075"><i class="fas fa-phone"></i> 0941122075</a></li>
+                        <li><a href="tel:0116636443"><i class="fas fa-phone"></i> 0116636443</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> دمشق - المزة - شيخ سعد</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة © 2026 | صالون حلاقة <span>SAWAN</span> | إدارة عبدالله صوان</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+                        <style>
+        /* صندوق ذكي يجمع الزرين أسفل الشاشة ويمنع التداخل */
+        .buttons-container-float {
+            position: fixed;
+            bottom: 35px; /* مرتفع قليلاً لكي لا يختفي تحت شريط الجوال */
+            left: 20px;   /* التموضع أسفل اليسار */
+            display: flex;
+            align-items: center;
+            gap: 15px;    /* مسافة أمان ثابتة تمنع الالتصاق نهائياً */
+            z-index: 99999; /* يضمن ظهورهم فوق كل صور وعناصر الموقع */
+        }
+
+        /* تنسيق زر الواتساب الأخضر الرسمي */
+        .floating-whatsapp-btn {
+            width: 56px;
+            height: 56px;
+            background-color: #25d366; 
+            color: #ffffff;            
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            animation: floatAnimation-sawan 3s ease-in-out infinite;
+        }
+
+        /* تنسيق زر الحجز باللون الأزرق النيلي الفاخر */
+        .floating-booking-btn {
+            width: 56px;
+            height: 56px;
+            background-color: #1a2e4c; /* لون أزرق نيلي داكن وملكّي */
+            color: #ffffff;            /* أيقونة بيضاء واضحة داخل الأزرق */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(26, 46, 76, 0.4); 
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            animation: floatAnimation-sawan 3s ease-in-out infinite;
+            animation-delay: 0.5s; /* تأخير بسيط للحركة التبادلية اللطيفة */
+        }
+
+        /* حركة العوم والنبض المشتركة للزرين */
+        @keyframes floatAnimation-sawan {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .floating-booking-btn:hover, .floating-whatsapp-btn:hover {
+            transform: scale(1.1);     
+        }
+    </style>
+    
+    <div class="buttons-container-float">
+        <a href="https://wa.me/963941122075" target="_blank" class="floating-whatsapp-btn" title="تواصل معنا عبر واتساب">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </a>
+
+        <a href="#bookingForm" class="floating-booking-btn" title="احجز الآن">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+        </a>
+    </div>
+
+
+
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Loader
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Scroll to top button
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top
+        document.getElementById('scrollTop').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const service = this.querySelector('select').value;
+            const name = this.querySelector('input[type="text"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+
+            // Create WhatsApp message
+            let message = `حجز جديد من موقع SAWAN:%0A`;
+            message += `الاسم: ${name}%0A`;
+            message += `الهاتف: ${phone}%0A`;
+            message += `الخدمة: ${service}%0A`;
+
+            // Open WhatsApp
+            window.open(`https://wa.me/963941122075?text=${message}`, '_blank');
+
+            // Show success message
+            alert('شكراً لك! سيتم توجيهك إلى واتساب لإتمام الحجز.');
+        });
+
+        // Gallery lightbox effect (simple)
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const img = this.querySelector('img');
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.95);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    cursor: pointer;
+                    animation: fadeIn 0.3s ease;
+                `;
+
+                const imgClone = document.createElement('img');
+                imgClone.src = img.src;
+                imgClone.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                    animation: fadeInUp 0.4s ease;
+                `;
+
+                overlay.appendChild(imgClone);
+                document.body.appendChild(overlay);
+
+                overlay.addEventListener('click', function () {
+                    this.remove();
+                });
+            });
+        });
+
+              </script>
+      <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDladUdfVzxdTc4aQLIDcO2yik18_1WqvV8",
+    authDomain: "sawan-993-4e4fa.firebaseapp.com",
+    projectId: "sawan-993-4e4fa",
+    storageBucket: "sawan-993-4e4fa.firebasestorage.app",
+    messagingSenderId: "780148744333",
+    appId: "1:780148744333:web:59a43cfd1112c030bdc2c4",
+    measurementId: "G-9CBZZ0DQ33"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const bookingForm = document.getElementById('bookingForm');
+  if(bookingForm) {
+    bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        await addDoc(collection(db, "appointments"), {
+          name: document.getElementById('name').value,
+          phone: document.getElementById('phone').value,
+          date: document.getElementById('date').value,
+          time: document.getElementById('time').value,
+          service: document.getElementById('service')?.value || "حلاقة",
+          createdAt: serverTimestamp()
+        });
+        alert("تم الحجز بنجاح!");
+        bookingForm.reset();
+      } catch (error) {
+        alert("حدث خطأ أثناء الحجز.");
+      }
+    });
+  }
+</script>
+</body>
+
+</html>'''
