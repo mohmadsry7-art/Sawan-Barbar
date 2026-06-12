@@ -1500,85 +1500,92 @@
           </div>
           
             </div>
-        <!-- ================= بداية قسم "صمم باقتك بنفسك" المطور ================= -->
+        <!-- ================= بداية قسم "صمم باقتك بنفسك" المحدد بمرة واحدة ================= -->
 <div class="sawan-package-section">
     <h2 class="sawan-section-title">صمم عرضك الخاص</h2>
 
-    <!-- زر كبس الثلاث نقاط -->
-    <button class="sawan-menu-trigger" id="sawanMenuBtn" type="button">
-        <span>اضغط لتصميم باقتك</span>
-        <div class="sawan-dots-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </button>
-
-    <!-- الخانة المنسدلة الذكية -->
-    <div class="sawan-dropdown-box" id="sawanDropdownMenu">
-        
-        <!-- غرض 1 -->
-        <div class="sawan-menu-row" data-price="150" data-name="حلاقة شعر">
-            <div class="sawan-row-right">
-                <span class="sawan-row-icon">✂️</span>
-                <span class="sawan-row-name">حلاقة شعر</span>
-            </div>
-            <div class="sawan-row-left">
-                <span class="sawan-row-price">150 ل.س</span>
-                <span class="sawan-row-check">✓</span>
-            </div>
-        </div>
-
-        <!-- غرض 2 -->
-        <div class="sawan-menu-row" data-price="150" data-name="تحديد دقن">
-            <div class="sawan-row-right">
-                <span class="sawan-row-icon">✂️</span>
-                <span class="sawan-row-name">تحديد دقن</span>
-            </div>
-            <div class="sawan-row-left">
-                <span class="sawan-row-price">150 ل.س</span>
-                <span class="sawan-row-check">✓</span>
-            </div>
-        </div>
-
-        <!-- خط فاصل ذكي -->
-        <div class="sawan-row-divider"></div>
-
-        <!-- غرض 3 -->
-        <div class="sawan-menu-row" data-price="100" data-name="ماسك للوجه">
-            <div class="sawan-row-right">
-                <span class="sawan-row-icon">✂️</span>
-                <span class="sawan-row-name">ماسك وجه</span>
-            </div>
-            <div class="sawan-row-left">
-                <span class="sawan-row-price">100 ل.س</span>
-                <span class="sawan-row-check">✓</span>
-            </div>
-        </div>
-
-        <!-- غرض 4 -->
-        <div class="menu-item sawan-menu-row" data-price="100" data-name="جلسة استشوار">
-            <div class="sawan-row-right">
-                <span class="sawan-row-icon">✂️</span>
-                <span class="sawan-row-name">استشوار</span>
-            </div>
-            <div class="sawan-row-left">
-                <span class="sawan-row-price">100 ل.س</span>
-                <span class="sawan-row-check">✓</span>
-            </div>
-        </div>
-
+    <!-- رسالة حجب تظهر فقط إذا كان الشخص قد استخدم العرض سابقاً -->
+    <div id="sawanBlockedMessage" style="display: none; color: #d4af37; font-family: 'Cairo', sans-serif; padding: 20px; border: 1px dashed #d4af37; border-radius: 12px; background-color: #1a1915; margin-bottom: 20px;">
+        ⚠️ عذراً يا غالي، لقد قمت بتصميم وإرسال باقتك الخاصة مسبقاً من هذا المتصفح. العرض متاح مرة واحدة فقط لكل زائر!
     </div>
 
-    <!-- صندوق الحساب والواتساب -->
-    <div class="sawan-summary-card" id="sawanSummaryBox">
-        <div class="sawan-total-text">المجموع الكلي: <span id="sawanTotalDisplay">0</span> ل.س</div>
-        <button class="sawan-whatsapp-btn" onclick="sendSawanPackage()">تأكيد وإرسال عبر واتساب</button>
+    <div id="sawanInteractiveContent">
+        <!-- زر كبس الثلاث نقاط -->
+        <button class="sawan-menu-trigger" id="sawanMenuBtn" type="button">
+            <span>اضغط لتصميم باقتك</span>
+            <div class="sawan-dots-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+
+        <!-- الخانة المنسدلة الذكية -->
+        <div class="sawan-dropdown-box" id="sawanDropdownMenu">
+            
+            <!-- غرض 1 -->
+            <div class="sawan-menu-row" data-price="400" data-name="حلاقة شعر">
+                <div class="sawan-row-right">
+                    <span class="sawan-row-icon">✂️</span>
+                    <span class="sawan-row-name">حلاقة شعر</span>
+                </div>
+                <div class="sawan-row-left">
+                    <span class="sawan-row-price">400 ل.س</span>
+                    <span class="sawan-row-check">✓</span>
+                </div>
+            </div>
+
+            <!-- غرض 2 -->
+            <div class="sawan-menu-row" data-price="350" data-name="تحديد دقن">
+                <div class="sawan-row-right">
+                    <span class="sawan-row-icon">✂️</span>
+                    <span class="sawan-row-name">تحديد دقن</span>
+                </div>
+                <div class="sawan-row-left">
+                    <span class="sawan-row-price">350 ل.س</span>
+                    <span class="sawan-row-check">✓</span>
+                </div>
+            </div>
+
+            <!-- خط فاصل ذكي -->
+            <div class="sawan-row-divider"></div>
+
+            <!-- غرض 3 -->
+            <div class="sawan-menu-row" data-price="150" data-name="ماسك للوجه">
+                <div class="sawan-row-right">
+                    <span class="sawan-row-icon">✂️</span>
+                    <span class="sawan-row-name">ماسك وجه</span>
+                </div>
+                <div class="sawan-row-left">
+                    <span class="sawan-row-price">150 ل.س</span>
+                    <span class="sawan-row-check">✓</span>
+                </div>
+            </div>
+
+            <!-- غرض 4 -->
+            <div class="sawan-menu-row" data-price="100" data-name="جلسة استشوار">
+                <div class="sawan-row-right">
+                    <span class="sawan-row-icon">✂️</span>
+                    <span class="sawan-row-name">استشوار</span>
+                </div>
+                <div class="sawan-row-left">
+                    <span class="sawan-row-price">100 ل.س</span>
+                    <span class="sawan-row-check">✓</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- صندوق الحساب والواتساب -->
+        <div class="sawan-summary-card" id="sawanSummaryBox">
+            <div class="sawan-total-text">المجموع الكلي: <span id="sawanTotalDisplay">0</span> ل.س</div>
+            <button class="sawan-whatsapp-btn" onclick="sendSawanPackage()">تأكيد وإرسال عبر واتساب</button>
+        </div>
     </div>
 </div>
 
 <style>
-    /* تنسيقات معزولة تماماً باستخدام كلاسات خاصة لصالون صوان لضمان عدم تداخل التصاميم */
+    /* التنسيقات الاحترافية المعزولة لصالون صوان */
     .sawan-package-section {
         width: 100%;
         max-width: 400px;
@@ -1787,8 +1794,17 @@
         const rows = document.querySelectorAll('.sawan-menu-row');
         const display = document.getElementById('sawanTotalDisplay');
         const box = document.getElementById('sawanSummaryBox');
+        const blockedMsg = document.getElementById('sawanBlockedMessage');
+        const interactiveContent = document.getElementById('sawanInteractiveContent');
         
         let selectedItemsList = [];
+
+        // الفحص عند تحميل الصفحة: هل استخدم الزبون العرض مسبقاً على هذا المتصفح؟
+        if (localStorage.getItem('sawan_package_used') === 'true') {
+            if(blockedMsg) blockedMsg.style.display = 'block';
+            if(interactiveContent) interactiveContent.style.display = 'none';
+            return; // إيقاف تنفيذ بقية الأكواد للزبون
+        }
 
         if(btn && menu) {
             btn.addEventListener('click', (e) => {
@@ -1831,7 +1847,7 @@
         });
 
         window.sendSawanPackage = function() {
-            const phone = "0941122075"; // ضع رقم واتساب الصالون هنا بالصيغة الدولية
+            const phone = "963XXXXXXXXX"; // ضع رقم واتساب الصالون هنا بالصيغة الدولية دون أصفار
             if (selectedItemsList.length === 0) return;
 
             let text = "مرحباً صالون صوان، لقد قمت بتركيب العرض الخاص بي من خلال القائمة الذكية:\n\n";
@@ -1840,11 +1856,21 @@
             });
             text += `\n💰 الحساب الإجمالي: ${display.textContent} ل.س\n\nأود تأكيد الحجز معكم.`;
 
+            // حفظ عملية الإرسال في المتصفح لمنعه مستقبلاً
+            localStorage.setItem('sawan_package_used', 'true');
+
+            // فتح الواتساب للإرسال
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+
+            // تحديث الواجهة فوراً لإخفاء الخصم وإظهار رسالة الحجب
+            if(blockedMsg) blockedMsg.style.display = 'block';
+            if(interactiveContent) interactiveContent.style.display = 'none';
         };
     })();
 </script>
-<!-- ================= نهاية قسم "صمم باقتك بنفسك" المطور ================= -->
+<!-- ================= نهاية قسم "صمم باقتك بنفسك" المحدد بمرة واحدة ================= -->
+        
+      
         
       
 </script>
