@@ -1500,7 +1500,401 @@
           </div>
           
             </div>
+        <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صالون صوان - قائمة الخدمات الذكية</title>
+    <!-- استيراد خط القاهرة العصري -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- الألوان والهوية البصرية لصالون صوان --- */
+        :root {
+            --bg-color: #0d0d0d;       /* خلفية الصفحة الداكنة */
+            --menu-bg: #1e1e1e;        /* خلفية القائمة البيضاء المائلة للسواد - مثل المتصفح */
+            --gold-color: #d4af37;     /* اللون الذهبي الفاخر */
+            --text-main: #ffffff;
+            --text-sub: #a6a6a6;
+            --border-color: #2c2c2c;
+            --transition: all 0.25s ease;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- الحاوية الرئيسية --- */
+        .interactive-container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--gold-color);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        /* --- زر الثلاث نقاط العصري --- */
+        .menu-trigger-btn {
+            background-color: var(--menu-bg);
+            border: 1px solid var(--border-color);
+            color: var(--gold-color);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+            user-select: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .menu-trigger-btn:hover {
+            border-color: var(--gold-color);
+            background-color: #262626;
+        }
+
+        /* أيقونة الثلاث نقاط العمودية */
+        .three-dots {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .three-dots span {
+            width: 5px;
+            height: 5px;
+            background-color: var(--gold-color);
+            border-radius: 50%;
+        }
+
+        /* --- تصميم الخانة المنسدلة (مثل المتصفح تماماً) --- */
+        .custom-dropdown-menu {
+            position: absolute;
+            top: 110%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            width: 100%;
+            max-width: 340px;
+            background-color: var(--menu-bg);
+            border-radius: 20px; /* زوايا دائرية ناعمة مثل الصورة */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 10px 0;
+            z-index: 100;
+            text-align: right;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        /* عند فتح القائمة بكبس الزر */
+        .custom-dropdown-menu.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* --- الأسطر والخيارات داخل الخانة --- */
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            user-select: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* خط فاصل سميك نسبياً لتقسيم الخانات مثل المتصفح */
+        .menu-divider {
+            height: 6px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin: 5px 0;
+        }
+
+        .menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* المحتوى الأيمن: الأيقونة والاسم */
+        .item-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .item-icon {
+            font-size: 1.3rem;
+            color: var(--text-sub);
+            width: 24px;
+            text-align: center;
+        }
+
+        .item-name {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-main);
+        }
+
+        /* المحتوى الأيسر: السعر وعلامة الصح المخفية */
+        .item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .item-price {
+            font-size: 0.9rem;
+            color: var(--gold-color);
+            font-weight: 700;
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        /* علامة الصح التي تظهر عند الكبس والتفعيل */
+        .check-mark {
+            width: 18px;
+            height: 18px;
+            color: var(--gold-color);
+            font-weight: bold;
+            font-size: 1rem;
+            visibility: hidden;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        /* تأثيرات كبس واختيار السطر */
+        .menu-item.active {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        .menu-item.active .check-mark {
+            visibility: visible;
+            opacity: 1;
+        }
+        .menu-item.active .item-icon {
+            color: var(--gold-color);
+        }
+
+        /* --- صندوق الحساب والواتساب في الأسفل --- */
+        .summary-box {
+            margin-top: 35px;
+            background-color: var(--menu-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            display: none; /* مخفي تلقائياً ويظهر فقط عند اختيار خدمة */
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .total-text {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .total-text span {
+            color: var(--gold-color);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .whatsapp-submit-btn {
+            background-color: transparent;
+            color: var(--gold-color);
+            border: 2px solid var(--gold-color);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .whatsapp-submit-btn:hover {
+            background-color: var(--gold-color);
+            color: #000;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="interactive-container">
+    <h2 class="section-title">صمم عرضك الخاص</h2>
+
+    <!-- زر كبس الثلاث نقاط -->
+    <button class="menu-trigger-btn" id="menuBtn">
+        <span>اضغط لتصميم باقتك</span>
+        <div class="three-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- الخانة المنسدلة المصممة مثل خانة المتصفح مع لوغو مقص الشعر الموحد -->
+    <div class="custom-dropdown-menu" id="dropdownMenu">
+        
+        <!-- غرض 1 -->
+        <div class="menu-item" data-price="150" data-name="حلاقة شعر">
+            <div class="item-right">
+                <div class="item-icon">✂️</div>
+                <div class="item-name">حلاقة شعر</div>
+            </div>
+            <div class="item-left">
+                <div class="item-price">150 ل.س</div>
+                <div class="check-mark">✓</div>
+            </div>
+        </div>
+
+        <!-- غرض 2 -->
+        <div class="menu-item" data-price="150" data-name="تحديد دقن">
+            <div class="item-right">
+                <div class="item-icon">✂️</div>
+                <div class="item-name">تحديد دقن</div>
+            </div>
+            <div class="item-left">
+                <div class="item-price">150ل.س</div>
+                <div class="check-mark">✓</div>
+            </div>
+        </div>
+
+        <!-- خط فاصل ذكي مثل المتصفح للترتيب البصري -->
+        <div class="menu-divider"></div>
+
+        <!-- غرض 3 -->
+        <div class="menu-item" data-price="100" data-name="ماسك للوجه">
+            <div class="item-right">
+                <div class="item-icon">✂️</div>
+                <div class="item-name">ماسك وجه</div>
+            </div>
+            <div class="item-left">
+                <div class="item-price">100 ل.س</div>
+                <div class="check-mark">✓</div>
+            </div>
+        </div>
+
+        <!-- غرض 4 -->
+        <div class="menu-item" data-price="100" data-name="جلسة استشوار">
+            <div class="item-right">
+                <div class="item-icon">✂️</div>
+                <div class="item-name">استشوار</div>
+            </div>
+            <div class="item-left">
+                <div class="item-price">100 ل.س</div>
+                <div class="check-mark">✓</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- صندوق تأكيد السعر والواتساب -->
+    <div class="summary-box" id="summaryBox">
+        <div class="total-text">المجموع الكلي: <span id="totalDisplay">0</span> ل.س</div>
+        <button class="whatsapp-submit-btn" onclick="sendPackageToWhatsapp()">تأكيد وإرسال عبر واتساب</button>
+    </div>
+</div>
+
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const menuItems = document.querySelectorAll('.menu-item');
+    const totalDisplay = document.getElementById('totalDisplay');
+    const summaryBox = document.getElementById('summaryBox');
+    
+    let activeServices = [];
+
+    // 1. فتح وإغلاق الخانة المنسدلة عند كبس زر الثلاث نقاط
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('show');
+    });
+
+    // إغلاق الخانة تلقائياً إذا كبس الزبون في أي مكان خارجها
+    document.addEventListener('click', () => {
+        dropdownMenu.classList.remove('show');
+    });
+
+    // منع إغلاق القائمة عند الكبس بداخلها لتسهيل الاختيار المتعدد
+    dropdownMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
+    // 2. كبس واختيار الأغراض والأسعار داخل الخانة
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');
+            calculateMenuTotal();
+        });
+    });
+
+    // دالة حساب السعر الإجمالي
+    function calculateMenuTotal() {
+        let total = 0;
+        activeServices = [];
+
+        menuItems.forEach(item => {
+            if (item.classList.contains('active')) {
+                total += parseInt(item.getAttribute('data-price'));
+                activeServices.push(item.getAttribute('data-name'));
+            }
+        });
+
+        totalDisplay.textContent = total;
+
+        // إظهار أو إخفاء صندوق الواتساب حسب الاختيار
+        if (activeServices.length > 0) {
+            summaryBox.style.display = 'block';
+        } else {
+            summaryBox.style.display = 'none';
+        }
+    }
+
+    // 3. إرسال العرض المختار إلى واتساب صالون صوان
+    function sendPackageToWhatsapp() {
+        const salonPhone = "0941122075"; // ضع رقم صالون صوان هنا بالصيغة الدولية الكاملة دون أصفار
+        
+        let message = "مرحباً صالون صوان،\nلقد قمت بتركيب العرض الخاص بي من خلال القائمة الذكية:\n\n";
+        
+        activeServices.forEach((service, index) => {
+            message += `✂️ ${service}\n`;
+        });
+
+        message += `\n💰 الحساب الإجمالي: ${totalDisplay.textContent} ل.س\n\nيرجى تأكيد الحجز المتاح لتنسيق الموعد.`;
+
+        const whatsappUrl = `https://wa.me/${salonPhone}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    }
+</script>
+
+</body>
+</html>
+
     </section>
+    
     
    <!-- كارد خدمة الشعر المستعار الجديد -->
 <div class="service-card anim" onclick="this.classList.toggle('active-green')">
