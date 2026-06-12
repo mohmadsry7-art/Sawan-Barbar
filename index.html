@@ -1500,6 +1500,352 @@
           </div>
           
             </div>
+        <!-- ================= بداية قسم "صمم باقتك بنفسك" المطور ================= -->
+<div class="sawan-package-section">
+    <h2 class="sawan-section-title">صمم عرضك الخاص</h2>
+
+    <!-- زر كبس الثلاث نقاط -->
+    <button class="sawan-menu-trigger" id="sawanMenuBtn" type="button">
+        <span>اضغط لتصميم باقتك</span>
+        <div class="sawan-dots-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+    <!-- الخانة المنسدلة الذكية -->
+    <div class="sawan-dropdown-box" id="sawanDropdownMenu">
+        
+        <!-- غرض 1 -->
+        <div class="sawan-menu-row" data-price="150" data-name="حلاقة شعر">
+            <div class="sawan-row-right">
+                <span class="sawan-row-icon">✂️</span>
+                <span class="sawan-row-name">حلاقة شعر</span>
+            </div>
+            <div class="sawan-row-left">
+                <span class="sawan-row-price">150 ل.س</span>
+                <span class="sawan-row-check">✓</span>
+            </div>
+        </div>
+
+        <!-- غرض 2 -->
+        <div class="sawan-menu-row" data-price="150" data-name="تحديد دقن">
+            <div class="sawan-row-right">
+                <span class="sawan-row-icon">✂️</span>
+                <span class="sawan-row-name">تحديد دقن</span>
+            </div>
+            <div class="sawan-row-left">
+                <span class="sawan-row-price">150 ل.س</span>
+                <span class="sawan-row-check">✓</span>
+            </div>
+        </div>
+
+        <!-- خط فاصل ذكي -->
+        <div class="sawan-row-divider"></div>
+
+        <!-- غرض 3 -->
+        <div class="sawan-menu-row" data-price="100" data-name="ماسك للوجه">
+            <div class="sawan-row-right">
+                <span class="sawan-row-icon">✂️</span>
+                <span class="sawan-row-name">ماسك وجه</span>
+            </div>
+            <div class="sawan-row-left">
+                <span class="sawan-row-price">100 ل.س</span>
+                <span class="sawan-row-check">✓</span>
+            </div>
+        </div>
+
+        <!-- غرض 4 -->
+        <div class="menu-item sawan-menu-row" data-price="100" data-name="جلسة استشوار">
+            <div class="sawan-row-right">
+                <span class="sawan-row-icon">✂️</span>
+                <span class="sawan-row-name">استشوار</span>
+            </div>
+            <div class="sawan-row-left">
+                <span class="sawan-row-price">100 ل.س</span>
+                <span class="sawan-row-check">✓</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- صندوق الحساب والواتساب -->
+    <div class="sawan-summary-card" id="sawanSummaryBox">
+        <div class="sawan-total-text">المجموع الكلي: <span id="sawanTotalDisplay">0</span> ل.س</div>
+        <button class="sawan-whatsapp-btn" onclick="sendSawanPackage()">تأكيد وإرسال عبر واتساب</button>
+    </div>
+</div>
+
+<style>
+    /* تنسيقات معزولة تماماً باستخدام كلاسات خاصة لصالون صوان لضمان عدم تداخل التصاميم */
+    .sawan-package-section {
+        width: 100%;
+        max-width: 400px;
+        margin: 40px auto;
+        text-align: center;
+        position: relative;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .sawan-section-title {
+        font-family: 'Cairo', sans-serif;
+        font-size: 1.6rem;
+        color: #d4af37;
+        margin-bottom: 25px;
+        font-weight: 700;
+    }
+
+    .sawan-menu-trigger {
+        font-family: 'Cairo', sans-serif;
+        background-color: #1e1e1e;
+        border: 1px solid #2c2c2c;
+        color: #d4af37;
+        padding: 12px 25px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.25s ease;
+        user-select: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .sawan-menu-trigger:hover {
+        border-color: #d4af37;
+        background-color: #262626;
+    }
+
+    .sawan-dots-icon {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+    .sawan-dots-icon span {
+        width: 5px;
+        height: 5px;
+        background-color: #d4af37;
+        border-radius: 50%;
+    }
+
+    .sawan-dropdown-box {
+        position: absolute;
+        top: 105%;
+        left: 50%;
+        transform: translateX(-50%) scale(0.9);
+        width: calc(100% - 30px);
+        max-width: 340px;
+        background-color: #1e1e1e;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        border: 1px solid #2c2c2c;
+        padding: 10px 0;
+        z-index: 999;
+        text-align: right;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        box-sizing: border-box;
+    }
+
+    .sawan-dropdown-box.show-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) scale(1);
+    }
+
+    .sawan-menu-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 20px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        user-select: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .sawan-menu-row:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .sawan-row-divider {
+        height: 6px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-top: 1px solid #2c2c2c;
+        border-bottom: 1px solid #2c2c2c;
+        margin: 5px 0;
+    }
+
+    .sawan-row-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .sawan-row-icon {
+        font-size: 1.2rem;
+        color: #a6a6a6;
+        width: 24px;
+        text-align: center;
+    }
+
+    .sawan-row-name {
+        font-family: 'Cairo', sans-serif;
+        font-size: 1rem;
+        color: #ffffff;
+    }
+
+    .sawan-row-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .sawan-row-price {
+        font-family: 'Cairo', sans-serif;
+        font-size: 0.9rem;
+        color: #d4af37;
+        font-weight: 700;
+        background-color: rgba(212, 175, 55, 0.1);
+        padding: 3px 10px;
+        border-radius: 12px;
+    }
+
+    .sawan-row-check {
+        width: 18px;
+        height: 18px;
+        color: #d4af37;
+        font-weight: bold;
+        font-size: 1rem;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.25s ease;
+    }
+
+    .sawan-menu-row.item-active {
+        background-color: rgba(212, 175, 55, 0.05);
+    }
+    .sawan-menu-row.item-active .sawan-row-check {
+        visibility: visible;
+        opacity: 1;
+    }
+    .sawan-menu-row.item-active .sawan-row-icon {
+        color: #d4af37;
+    }
+
+    .sawan-summary-card {
+        margin-top: 25px;
+        background-color: #1e1e1e;
+        border: 1px solid #2c2c2c;
+        border-radius: 16px;
+        padding: 20px;
+        display: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .sawan-total-text {
+        font-family: 'Cairo', sans-serif;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: #ffffff;
+    }
+    .sawan-total-text span {
+        color: #d4af37;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    .sawan-whatsapp-btn {
+        font-family: 'Cairo', sans-serif;
+        background-color: transparent;
+        color: #d4af37;
+        border: 2px solid #d4af37;
+        padding: 10px 30px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.25s ease;
+    }
+
+    .sawan-whatsapp-btn:hover {
+        background-color: #d4af37;
+        color: #000;
+    }
+</style>
+
+<script>
+    (function() {
+        const btn = document.getElementById('sawanMenuBtn');
+        const menu = document.getElementById('sawanDropdownMenu');
+        const rows = document.querySelectorAll('.sawan-menu-row');
+        const display = document.getElementById('sawanTotalDisplay');
+        const box = document.getElementById('sawanSummaryBox');
+        
+        let selectedItemsList = [];
+
+        if(btn && menu) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menu.classList.toggle('show-menu');
+            });
+
+            document.addEventListener('click', () => {
+                menu.classList.remove('show-menu');
+            });
+
+            menu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
+
+        rows.forEach(row => {
+            row.addEventListener('click', () => {
+                row.classList.toggle('item-active');
+                let total = 0;
+                selectedItemsList = [];
+
+                rows.forEach(r => {
+                    if (r.classList.contains('item-active')) {
+                        total += parseInt(r.getAttribute('data-price'));
+                        selectedItemsList.push(r.getAttribute('data-name'));
+                    }
+                });
+
+                if(display) display.textContent = total;
+
+                if(box) {
+                    if (selectedItemsList.length > 0) {
+                        box.style.display = 'block';
+                    } else {
+                        box.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        window.sendSawanPackage = function() {
+            const phone = "09441122075"; // ضع رقم واتساب الصالون هنا بالصيغة الدولية
+            if (selectedItemsList.length === 0) return;
+
+            let text = "مرحباً صالون صوان، لقد قمت بتركيب العرض الخاص بي من خلال القائمة الذكية:\n\n";
+            selectedItemsList.forEach((item) => {
+                text += `✂️ ${item}\n`;
+            });
+            text += `\n💰 الحساب الإجمالي: ${display.textContent} ل.س\n\nأود تأكيد الحجز معكم.`;
+
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+        };
+    })();
+</script>
+<!-- ================= نهاية قسم "صمم باقتك بنفسك" المطور ================= -->
+        
       
 </script>
 
