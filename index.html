@@ -1499,81 +1499,101 @@
             </p>
           </div>
           
-            </div>
-        <style>
-    /* تنسيق الكارت */
-    .offer-card { background-color: #161616; border: 1px solid #222; border-radius: 4px; width: 100%; max-width: 320px; padding: 30px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); margin: 0 auto; font-family: 'Segoe UI', sans-serif; }
-    .brand-logo-svg { width: 80px; height: 80px; fill: #c5a880; margin-bottom: 10px; }
-    .sawan-text { color: #c5a880; font-size: 24px; font-weight: bold; margin-bottom: 20px; letter-spacing: 2px; }
-    .badge { background-color: #c5a880; color: #000; font-weight: bold; font-size: 13px; padding: 5px 15px; border-radius: 2px; margin-bottom: 15px; display: inline-block; border: 1px dashed #000; }
-    .offer-title { color: #ffffff; font-size: 20px; margin-bottom: 10px; font-weight: 600; }
-    .offer-price { color: #c5a880; font-size: 24px; font-weight: bold; margin-bottom: 10px; }
-    .offer-note { color: #888888; font-size: 13px; margin-bottom: 20px; }
-    .offer-btn { background-color: transparent; color: #c5a880; border: 2px solid #c5a880; padding: 12px; width: 100%; cursor: pointer; font-weight: bold; border-radius: 4px; transition: 0.3s; }
-    .offer-btn:hover { background-color: #c5a880; color: #000; box-shadow: 0 0 15px rgba(197, 168, 128, 0.4); }
-    
-    /* تنسيق النافذة المنبثقة */
-    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 999; }
-    .overlay.active { display: flex; }
-    .popup { background: #1a1a1a; border: 2px solid #c5a880; padding: 30px; border-radius: 8px; width: 85%; max-width: 350px; text-align: center; }
-    .popup input { width: 100%; padding: 12px; margin: 15px 0; background: #000; border: 1px solid #333; color: #fff; border-radius: 4px; box-sizing: border-box; text-align: center; }
-    .whatsapp-btn { background: #25d366; color: #fff; border: none; padding: 12px; width: 100%; cursor: pointer; font-weight: bold; border-radius: 4px; }
+          <style>
+    /* تصميم الـ Cyber-Industrial */
+    .cyber-box {
+        background: #050505;
+        border: 2px solid #333;
+        padding: 40px 20px;
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+        position: relative;
+        font-family: 'Courier New', Courier, monospace; /* خط تكنولوجي */
+    }
+
+    /* إطار نيون خفيف */
+    .cyber-box::after {
+        content: '';
+        position: absolute;
+        bottom: 0; right: 0; width: 40px; height: 4px;
+        background: #c5a880;
+    }
+
+    .cyber-brand { 
+        color: #fff; 
+        font-size: 32px; 
+        font-weight: 900; 
+        letter-spacing: 8px; 
+        margin-bottom: 5px; 
+        border-bottom: 2px solid #c5a880;
+        display: inline-block;
+    }
+
+    .cyber-service { color: #aaa; font-size: 14px; text-transform: uppercase; margin-bottom: 20px; }
+
+    .price-box { 
+        border: 1px solid #c5a880;
+        padding: 15px;
+        margin: 20px 0;
+        background: rgba(197, 168, 128, 0.05);
+    }
+    .price-val { color: #c5a880; font-size: 28px; font-weight: bold; }
+
+    .cyber-btn {
+        background: #c5a880;
+        color: #000;
+        border: none;
+        padding: 15px;
+        width: 100%;
+        font-weight: 900;
+        text-transform: uppercase;
+        cursor: pointer;
+        clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%); /* شكل تكنولوجي */
+        transition: 0.3s;
+    }
+    .cyber-btn:hover { background: #fff; }
+
+    /* النافذة */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); display: none; justify-content: center; align-items: center; z-index: 9999; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { border: 2px solid #c5a880; padding: 40px; width: 80%; max-width: 300px; color: #fff; }
 </style>
 
-<div class="offer-card" dir="rtl">
-    <svg class="brand-logo-svg" viewBox="0 0 24 24">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-    </svg>
-    <div class="sawan-text">SAWAN</div>
-    <div class="badge">✨ عـرض خـاص ✨</div>
-    <div class="offer-title">تنظيف بشرة + حلاقة شعر</div>
-    <div class="offer-price">60,000 ل.س</div>
-    <div class="offer-note">العرض حصرياً يوم الاثنين</div>
-    <button class="offer-btn" onclick="document.getElementById('popupOverlay').classList.add('active')">اريد الحصول على العرض</button>
+<div class="cyber-box" dir="rtl">
+    <div class="cyber-brand">SAWAN</div>
+    <div class="cyber-service">Digital Grooming System</div>
+    
+    <div style="color: #fff; font-size: 18px; font-weight: bold; margin-top: 20px;">
+        تنظيف بشرة + حلاقة شعر
+    </div>
+    
+    <div class="price-box">
+        <div class="price-val">60,000 ل.س</div>
+    </div>
+    
+    <button class="cyber-btn" onclick="document.getElementById('cModal').classList.add('open')">حجز متاح</button>
 </div>
 
-<div class="overlay" id="popupOverlay">
-    <div class="popup" id="popupContent">
-        <div id="popupBody">
-            <h3 style="color: #c5a880;">أكمل حجزك في صالون صوان</h3>
-            <p style="color: #fff;">يرجى كتابة اسمك لتأكيد الحجز:</p>
-            <input type="text" id="userName" placeholder="اكتب اسمك الثلاثي هنا...">
-            <button class="whatsapp-btn" onclick="sendWhatsApp()">إرسال الحجز عبر واتساب 💬</button>
-        </div>
+<div class="modal-overlay" id="cModal">
+    <div class="modal-box">
+        <h2 style="color: #c5a880; margin-bottom: 20px;">تأكيد الدخول</h2>
+        <input type="text" id="uName" placeholder="الاسم الكريم..." style="width:100%; background:transparent; border:1px solid #555; color:#fff; padding:10px; margin-bottom:20px;">
+        <button class="cyber-btn" onclick="sendBooking()">إرسال بيانات الحجز</button>
     </div>
 </div>
 
 <script>
-    let currentClientNumber = 1;
-    const maxOffers = 10;
-
-    function sendWhatsApp() {
-        let name = document.getElementById('userName').value;
-        if (!name) { alert('يرجى كتابة اسمك أولاً!'); return; }
-
-        if (currentClientNumber <= maxOffers) {
-            let message = `مرحباً صالون صوان، أنا ${name}، أريد الحصول على العرض. رقم حجزي التسلسلي هو: ${currentClientNumber}`;
-            let phone = "0941122075"; // تأكد من وضع رقمك هنا
-            let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-
-            document.getElementById('popupBody').innerHTML = `
-                <h3 style="color: #c5a880;">تم إرسال طلبك! 🎉</h3>
-                <p style="color: #fff;">رقم حجزي في صالون صوان هو:</p>
-                <div style="font-size: 24px; color: #c5a880; font-weight: bold; border: 1px dashed #c5a880; padding: 10px; background: rgba(197,168,128,0.1);"># ${currentClientNumber}</div>
-                <button class="whatsapp-btn" style="margin-top:20px; background:#c5a880; color:#000;" onclick="location.reload()">إغلاق</button>
-            `;
-            currentClientNumber++;
-        } else {
-            document.getElementById('popupBody').innerHTML = `
-                <h3 style="color: #ff3333;">تم انتهاء العرض! 🛑</h3>
-                <p style="color: #ff8888;">تم استهلاك جميع المقاعد (10/10).</p>
-                <button class="whatsapp-btn" style="background:#ff3333;" onclick="location.reload()">إغلاق</button>
-            `;
-        }
+    function sendBooking() {
+        let n = document.getElementById('uName').value;
+        if (!n) return;
+        let url = `https://wa.me/9639XXXXXXXXX?text=أهلاً صالون صوان، أنا ${n}، أريد حجز عرض تنظيف البشرة وحلاقة الشعر (60,000 ل.س).`;
+        window.open(url, '_blank');
+        document.getElementById('cModal').classList.remove('open');
     }
 </script>
-        
+
+            </div>
         
                         
 
